@@ -43,5 +43,5 @@ bot.dialog("/hello", [function (session, args, next) {
 }]);
 
 bot.dialog("/how_are_you", [function (session, args, next) {
-  session.endConversation("I am fine, thanks.")
+  session.endConversation("I am fine, thanks.");
 }]);
