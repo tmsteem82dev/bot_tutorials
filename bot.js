@@ -25,5 +25,9 @@ bot.on("conversationUpdate", function(message) {
 });
 
 bot.dialog("/", function(session) {
-  session.send("Hmmm, what does: '" + session.message.text + "' mean?");
+  switch (session.message.text) {
+    default:
+      session.send("Hmmm, what does: '" + session.message.text + "' mean?");
+      break;
+  }
 });
