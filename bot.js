@@ -43,5 +43,17 @@ bot.dialog("/hello", [function (session, args, next) {
 }]);
 
 bot.dialog("/how_are_you", [function (session, args, next) {
-  session.endConversation("I am fine, thanks.");
-}]);
+    session.send("I am fine thanks.");
+    next();
+  },
+  function (session, result, next) {
+    builder.Prompts.text(session, "How are you?");
+  },
+  function (session, result, next) {
+    if (result.response.match(/good|fine/i)) {
+      session.endConversation("I am glad to hear that.");
+    } else {
+      session.endConversation("I'm sorry.");
+    }
+  }
+]);
